@@ -8,5 +8,12 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
-    environment:
-      - NODE_ENV=development
+  test:
+   build:
+    context: . 
+    dockerfile: Dockerfile.dev
+   command: npm run test
+   volumes:
+   - /app/node_modules
+   - .:/app
+ 
